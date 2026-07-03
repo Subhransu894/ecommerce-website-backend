@@ -38,6 +38,10 @@ app.use("/api/orders",orderRoute)
 const userRoute = require("./routes/user.route")
 app.use("/api/users",userRoute);
 
+//auth routes
+const authRoutes = require("./routes/auth.routes")
+app.use("/api/auth",authRoutes)
+
 const PORT=3000
 app.listen(PORT,()=>{
     console.log(`server is running on ${PORT}`)
