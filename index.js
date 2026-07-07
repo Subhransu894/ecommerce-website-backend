@@ -3,7 +3,12 @@ const app=express()
 require("dotenv").config()
 const cors = require("cors")
 const corOption={
-    origin:"*",
+    origin:[
+        "http://localhost:5173",
+        "https://ecommerce-website-frontend-nine-lac.vercel.app/"
+    ],
+    methods:["GET","POST","PUT","DELETE","OPTIONS"],
+    allowedHeaders:["Content-Type","Authorization"],
     credentials:true,
 }
 
@@ -12,8 +17,8 @@ const User = require("./models/users.models")
 const Product = require("./models/product.models")
 const Order = require("./models/orders.models")
 
-app.use(express.json())
 app.use(cors(corOption))
+app.use(express.json())
 
 initiallizeDatabase()
 
